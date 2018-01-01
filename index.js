@@ -87,7 +87,7 @@ function receivedMessage(event) {
             case 'hii':
                 sendHiMessage(senderID, recipientID);
                 break;
-            case 'what is you name ?':
+            case 'you name':
                 replyMessage = "My name is ShopwareBot!! :)";
                 sendTextMessage(senderID, replyMessage);
                 break;
