@@ -84,7 +84,16 @@ function receivedMessage(event) {
         switch (messageText.replace(/[^\w\s]/gi, '').trim().toLowerCase()) {
             case 'hello':
             case 'hi':
+            case 'hii':
                 sendHiMessage(senderID, recipientID);
+                break;
+            case 'what is you name ?':
+                replyMessage = "My name is ShopwareBot!! :)";
+                sendTextMessage(senderID, replyMessage);
+                break;
+            case 'who is your creator ?':
+                replyMessage = "He is awsome men. Grig Harutyunyan! :)";
+                sendTextMessage(senderID, replyMessage);
                 break;
             case 'how are you ?':
             case 'how are you':
