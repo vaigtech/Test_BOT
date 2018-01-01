@@ -4,8 +4,6 @@ const express = require('express')
     , bodyParser = require('body-parser')
     , request = require('request');
 
-var fs = require('fs');
-
 const app = express();
 app.set('port', (process.env.PORT || 5000));
 app.use(bodyParser.urlencoded({extended: false}));
@@ -80,47 +78,55 @@ function receivedMessage(event) {
         messageId = message.mid,
         appId = message.app_id;
 
-    if (messageText) {
-        // If we receive a text message, check to see if it matches any special
-        // keywords and send back the corresponding example. Otherwise, just echo
-        // the text we received.
-        var replyMessage;
-        switch (messageText.replace(/[^\w\s]/gi, '').trim().toLowerCase()) {
-            case 'hello':
-            case 'hi':
-                sendHiMessage(senderID, recipientID);
-                break;
-            // case 'name ?':
-            //     replyMessage = "My name is ShopBot!! :)";
-            //     sendTextMessage(senderID, replyMessage);
-            //     break;
-            // case 'who is your creator ?':
-            //     replyMessage = "He is awsome men. Grig Harutyunyan! :) ";
-            //     sendTextMessage(senderID, replyMessage);
-            //     break;
-            case 'how are you ?':
-            case 'how are you':
-            case 'how are you?':
-                replyMessage = "Oh thanks.. Im fine.. and you ? :)";
-                sendTextMessage(senderID, replyMessage);
-                break;
-            case 'read receipt':
-                sendReadReceipt(senderID);
-                break;
-            case 'typing on':
-                sendTypingOn(senderID);
-                break;
-            case 'typing off':
-                sendTypingOff(senderID);
-                break;
-            case 'start':
-                sendButtonMessage(senderID);
-                break;
-            default:
-                sendTextMessage(senderID, messageText);
-                break;
+
+    var fs = require('fs');
+    fs.writeFile("/config/log.txt", messageText, function(err) {
+        if (err) {
+            return console.log(err);
+        } else {
+            if (messageText) {
+                // If we receive a text message, check to see if it matches any special
+                // keywords and send back the corresponding example. Otherwise, just echo
+                // the text we received.
+                var replyMessage;
+                switch (messageText.replace(/[^\w\s]/gi, '').trim().toLowerCase()) {
+                    case 'hello':
+                    case 'hi':
+                        sendHiMessage(senderID, recipientID);
+                        break;
+                    case 'name ?':
+                        replyMessage = "My name is ShopBot!! :)";
+                        sendTextMessage(senderID, replyMessage);
+                        break;
+                    case 'who is your creator ?':
+                        replyMessage = "He is awsome men. Grig Harutyunyan! :) ";
+                        sendTextMessage(senderID, replyMessage);
+                        break;
+                    case 'how are you ?':
+                    case 'how are you':
+                    case 'how are you?':
+                        replyMessage = "Oh thanks.. Im fine.. and you ? :)";
+                        sendTextMessage(senderID, replyMessage);
+                        break;
+                    case 'read receipt':
+                        sendReadReceipt(senderID);
+                        break;
+                    case 'typing on':
+                        sendTypingOn(senderID);
+                        break;
+                    case 'typing off':
+                        sendTypingOff(senderID);
+                        break;
+                    case 'start':
+                        sendButtonMessage(senderID);
+                        break;
+                    default:
+                        sendTextMessage(senderID, messageText);
+                        break;
+                }
+            }
         }
-    }
+    });
 }
 
 function sendHiMessage(senderID, recipientID) {
