@@ -33,13 +33,6 @@ app.post('/webhook', function (req, res) {
     var data = req.body,
         fs = require('fs');
 
-    // Make sure this is a page subscription
-    // fs.writeFile("./config/log.txt", data.object, function(err) {
-    //     if (err) {
-    //         return console.log(err);
-    //     }
-    // });
-
     if (data.object === 'page') {
         data.entry.forEach(function(pageEntry) {
             var pageID = pageEntry.id;
@@ -92,14 +85,6 @@ function receivedMessage(event) {
             case 'hello':
             case 'hi':
                 sendHiMessage(senderID, recipientID);
-                break;
-            case 'name ?':
-                replyMessage = "My name is ShopBot!! :)";
-                sendTextMessage(senderID, replyMessage);
-                break;
-            case 'who is your creator ?':
-                replyMessage = "He is awsome men. Grig Harutyunyan! :) ";
-                sendTextMessage(senderID, replyMessage);
                 break;
             case 'how are you ?':
             case 'how are you':
