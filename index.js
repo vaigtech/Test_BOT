@@ -120,7 +120,7 @@ function receivedMessage(event) {
 
 function sendHiMessage(senderID, recipientID) {
     request({
-        url: 'https://graph.facebook.com/v2.6/' + senderID,
+        url: 'https://graph.facebook.com/v2.11/' + senderID,
         qs: {
             access_token: process.env.PAGE_ACCESS_TOKEN,
             fields: "first_name"
@@ -206,6 +206,7 @@ function sendReadReceipt(recipientId, messageText) {
 
     callSendAPI(messageData);
 }
+
 function sendButtonMessage(recipientId) {
     var messageData = {
         recipient: {
@@ -240,7 +241,7 @@ function sendButtonMessage(recipientId) {
 
 function callSendAPI(mesageData) {
     request({
-        url: "https://graph.facebook.com/v2.6/me/messages",
+        url: "https://graph.facebook.com/v2.11/me/messages",
         qs: {
             access_token: process.env.PAGE_ACCESS_TOKEN
         },
