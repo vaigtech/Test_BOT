@@ -87,17 +87,15 @@ function receivedMessage(event) {
             case 'hii':
                 sendHiMessage(senderID, recipientID);
                 break;
-            case 'you name':
+            case 'your name please':
                 replyMessage = "My name is ShopwareBot!! :)";
                 sendTextMessage(senderID, replyMessage);
                 break;
-            case 'who is your creator ?':
+            case 'who is your creator':
                 replyMessage = "He is awsome men. Grig Harutyunyan! :)";
                 sendTextMessage(senderID, replyMessage);
                 break;
-            case 'how are you ?':
             case 'how are you':
-            case 'how are you?':
                 replyMessage = "Oh thanks.. Im fine.. and you ? :)";
                 sendTextMessage(senderID, replyMessage);
                 break;
