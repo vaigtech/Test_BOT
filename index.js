@@ -90,14 +90,14 @@ function receivedMessage(event) {
             case 'hi':
                 sendHiMessage(senderID, recipientID);
                 break;
-            case 'name ?':
-                replyMessage = "My name is ShopBot!! :)";
-                sendTextMessage(senderID, replyMessage);
-                break;
-            case 'who is your creator ?':
-                replyMessage = "He is awsome men. Grig Harutyunyan! :) ";
-                sendTextMessage(senderID, replyMessage);
-                break;
+            // case 'name ?':
+            //     replyMessage = "My name is ShopBot!! :)";
+            //     sendTextMessage(senderID, replyMessage);
+            //     break;
+            // case 'who is your creator ?':
+            //     replyMessage = "He is awsome men. Grig Harutyunyan! :) ";
+            //     sendTextMessage(senderID, replyMessage);
+            //     break;
             case 'how are you ?':
             case 'how are you':
             case 'how are you?':
