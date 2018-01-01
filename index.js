@@ -34,27 +34,25 @@ app.post('/webhook', function (req, res) {
         fs = require('fs');
 
     // Make sure this is a page subscription
-    fs.writeFile("./config/log.txt", data.object, function(err) {
-        if (err) {
-            return console.log(err);
-        }
+    // fs.writeFile("./config/log.txt", data.object, function(err) {
+    //     if (err) {
+    //         return console.log(err);
+    //     }
+    // });
 
-        if (data.object === 'page') {
-            data.entry.forEach(function(pageEntry) {
-                var pageID = pageEntry.id;
-                var timeOfEvent = pageEntry.time;
+    if (data.object === 'page') {
+        data.entry.forEach(function(pageEntry) {
+            var pageID = pageEntry.id;
+            var timeOfEvent = pageEntry.time;
 
-                // Iterate over each messaging event
-                pageEntry.messaging.forEach(function(messagingEvent) {
-                    if (messagingEvent.message) {
-                        receivedMessage(messagingEvent);
-                    }
-                });
+            // Iterate over each messaging event
+            pageEntry.messaging.forEach(function(messagingEvent) {
+                if (messagingEvent.message) receivedMessage(messagingEvent);
             });
+        });
 
-            res.sendStatus(200);
-        }
-    });
+        res.sendStatus(200);
+    }
 });
 
 /*
