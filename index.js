@@ -130,7 +130,7 @@ function sendHiMessage(senderID, recipientID) {
     request({
         url: 'https://graph.facebook.com/v2.6/' + senderID,
         qs: {
-            access_token: process.env.PAGE_ACCESS_TOKEN,
+            access_token: 'EAAEnLMs1aLMBAKZBTGJpYyQ41XRejSo8AlPYcA6XTmVVIR2pKvzXQFvHOLrZByOh2IJioxIRlkMejwEuWvBqA3gAmpMJgN4QjgYdFM5iTsSVmwVZBJPo3UronbmpzuMZCAP1PsvDODckjiyfKYPQAYkL9aZCRAYE0L3UlJMdFOAZDZD', // process.env.PAGE_ACCESS_TOKEN,
             fields: "first_name"
         },
         method: 'GET'
@@ -250,7 +250,7 @@ function callSendAPI(mesageData) {
     request({
         url: "https://graph.facebook.com/v2.6/me/messages",
         qs: {
-            access_token: process.env.PAGE_ACCESS_TOKEN
+            access_token: 'EAAEnLMs1aLMBAKZBTGJpYyQ41XRejSo8AlPYcA6XTmVVIR2pKvzXQFvHOLrZByOh2IJioxIRlkMejwEuWvBqA3gAmpMJgN4QjgYdFM5iTsSVmwVZBJPo3UronbmpzuMZCAP1PsvDODckjiyfKYPQAYkL9aZCRAYE0L3UlJMdFOAZDZD', // process.env.PAGE_ACCESS_TOKEN
         },
         method: "POST",
         json: mesageData
