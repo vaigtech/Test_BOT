@@ -113,6 +113,7 @@ function receivedMessage(event) {
                     sendTypingOn(senderID); sendTypingOff(senderID);
                     sendTextMessage(senderID, addedMessage);
                 }, 2000);
+                sendTypingOff(senderID);
                 break;
             case 'really':
             case 'its fine':
@@ -123,6 +124,7 @@ function receivedMessage(event) {
                     sendTypingOn(senderID); sendTypingOff(senderID);
                     sendTextMessage(senderID, addedMessage);
                 }, 1000);
+                sendTypingOff(senderID);
                 sendTextMessage(senderID, replyMessage);
                 break;
             case 'start':
