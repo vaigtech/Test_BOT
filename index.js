@@ -80,7 +80,9 @@ function receivedMessage(event) {
         // If we receive a text message, check to see if it matches any special
         // keywords and send back the corresponding example. Otherwise, just echo
         // the text we received.
-        var replyMessage;
+        var replyMessage,
+            addedMessage;
+
         switch (messageText.replace(/[^\w\s]/gi, '').trim().toLowerCase()) {
             case 'hello':
             case 'hi':
@@ -103,19 +105,29 @@ function receivedMessage(event) {
             case 'im too':
             case 'too':
                 replyMessage = "It's fine ;) now tell me how i can help you ?";
-                var addedMessage = "Im ShopwareBot ^_^ And i can suggest you some kind of articles from Stylecover market.";
+                addedMessage = "Im ShopwareBot ^_^ And i can suggest you some kind of articles from Stylecover market.";
                 sendTextMessage(senderID, replyMessage);
                 setTimeout(function () {
                     sendTextMessage(senderID, addedMessage);
                 }, 2000);
                 break;
-            case 'read receipt':
+            case 'and how i can use your functionality':
+                replyMessage = "Please type start and send me !!";
+                addedMessage = "Sure i will help you :*";
+                setTimeout(function () {
+                    sendTypingOn(senderID);
+                    sendTypingOff(senderID);
+                    sendTextMessage(senderID, addedMessage);
+                }, 1000);
+                sendTextMessage(senderID, replyMessage);
+                break;
+            case 'read':
                 sendReadReceipt(senderID);
                 break;
-            case 'typing on':
+            case 'on':
                 sendTypingOn(senderID);
                 break;
-            case 'typing off':
+            case 'off':
                 sendTypingOff(senderID);
                 break;
             case 'start':
