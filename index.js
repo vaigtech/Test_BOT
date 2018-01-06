@@ -109,11 +109,13 @@ function receivedMessage(event) {
                     + "And i can suggest you some kind of products from BlackhettDesigns market. "
                     + "I think you will love our products";
                 sendTextMessage(senderID, replyMessage);
-                sendTypingOn(senderID);
+                setTimeout(function () {
+                    sendTypingOn(senderID);
+                }, 1000);
                 setTimeout(function () {
                     sendTypingOff(senderID);
-                }, 2000);
-                sendTextMessage(senderID, addedMessage);
+                    sendTextMessage(senderID, addedMessage);
+                }, 4000);
                 break;
             case 'really':
             case 'its fine':
