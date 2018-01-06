@@ -115,7 +115,7 @@ function receivedMessage(event) {
                 }, 2000);
                 break;
             case 'really':
-            case 'it\'s fine':
+            case 'its fine':
             case 'right':
                 replyMessage = "Please type start and send me !!";
                 addedMessage = "Sure i will help you :)";
