@@ -115,7 +115,7 @@ function receivedMessage(event) {
                 setTimeout(function () {
                     sendTypingOff(senderID);
                     sendTextMessage(senderID, addedMessage);
-                }, 4000);
+                }, 5000);
                 break;
             case 'really':
             case 'its fine':
@@ -123,11 +123,13 @@ function receivedMessage(event) {
                 replyMessage = "Please type start and send me !!";
                 addedMessage = "Sure i will help you :)";
                 sendTextMessage(senderID, replyMessage);
-                sendTypingOn(senderID);
+                setTimeout(function () {
+                    sendTypingOn(senderID);
+                }, 1000);
                 setTimeout(function () {
                     sendTypingOff(senderID);
-                }, 2000);
-                sendTextMessage(senderID, addedMessage);
+                    sendTextMessage(senderID, addedMessage);
+                }, 3000);
                 break;
             case 'start':
                 sendButtonMessage(senderID);
