@@ -102,8 +102,10 @@ function receivedMessage(event) {
                 break;
             case 'im too':
             case 'too':
-                replyMessage = "It's fine, now tell me how i can help you ?";
+                replyMessage = "It's fine ;) now tell me how i can help you ?";
+                var replyMessage2 = "Im ShopwareBot ^_^ And i can suggest you some kind of articles from Stylecover market.";
                 sendTextMessage(senderID, replyMessage);
+                setTimeout(sendTextMessage, 2000, [senderID, replyMessage2]);
                 break;
             case 'read receipt':
                 sendReadReceipt(senderID);
