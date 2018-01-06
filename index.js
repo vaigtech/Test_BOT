@@ -105,30 +105,23 @@ function receivedMessage(event) {
             case 'im too':
             case 'too':
                 replyMessage = "It's fine ;) now tell me how i can help you ?";
-                addedMessage = "Im ShopwareBot ^_^ And i can suggest you some kind of articles from Stylecover market.";
+                addedMessage = "Im ShopwareBot ^_^ "
+                    + "And i can suggest you some kind of products from BlackhettDesigns market. "
+                    + "I think you will love our products";
                 sendTextMessage(senderID, replyMessage);
                 setTimeout(function () {
+                    sendTypingOn(senderID); sendTypingOff(senderID);
                     sendTextMessage(senderID, addedMessage);
                 }, 2000);
                 break;
             case 'and how i can use your functionality':
                 replyMessage = "Please type start and send me !!";
-                addedMessage = "Sure i will help you :*";
+                addedMessage = "Sure i will help you :)";
                 setTimeout(function () {
-                    sendTypingOn(senderID);
-                    sendTypingOff(senderID);
+                    sendTypingOn(senderID); sendTypingOff(senderID);
                     sendTextMessage(senderID, addedMessage);
                 }, 1000);
                 sendTextMessage(senderID, replyMessage);
-                break;
-            case 'read':
-                sendReadReceipt(senderID);
-                break;
-            case 'on':
-                sendTypingOn(senderID);
-                break;
-            case 'off':
-                sendTypingOff(senderID);
                 break;
             case 'start':
                 sendButtonMessage(senderID);
