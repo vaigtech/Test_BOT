@@ -109,23 +109,23 @@ function receivedMessage(event) {
                     + "And i can suggest you some kind of products from BlackhettDesigns market. "
                     + "I think you will love our products";
                 sendTextMessage(senderID, replyMessage);
+                sendTypingOn(senderID);
                 setTimeout(function () {
-                    sendTypingOn(senderID); sendTypingOff(senderID);
-                    sendTextMessage(senderID, addedMessage);
+                    sendTypingOff(senderID);
                 }, 2000);
-                sendTypingOff(senderID);
+                sendTextMessage(senderID, addedMessage);
                 break;
             case 'really':
             case 'its fine':
             case 'right':
                 replyMessage = "Please type start and send me !!";
                 addedMessage = "Sure i will help you :)";
-                setTimeout(function () {
-                    sendTypingOn(senderID); sendTypingOff(senderID);
-                    sendTextMessage(senderID, addedMessage);
-                }, 1000);
-                sendTypingOff(senderID);
                 sendTextMessage(senderID, replyMessage);
+                sendTypingOn(senderID);
+                setTimeout(function () {
+                    sendTypingOff(senderID);
+                }, 2000);
+                sendTextMessage(senderID, addedMessage);
                 break;
             case 'start':
                 sendButtonMessage(senderID);
