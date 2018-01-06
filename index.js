@@ -103,7 +103,7 @@ function receivedMessage(event) {
             case 'im too':
             case 'too':
             case 'i\'m too':
-                replyMessage = "It's fine, now tell me how i can halp you ?";
+                replyMessage = "It's fine, now tell me how i can help you ?";
                 sendTextMessage(senderID, replyMessage);
                 break;
             case 'read receipt':
