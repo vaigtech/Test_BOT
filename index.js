@@ -114,7 +114,9 @@ function receivedMessage(event) {
                     sendTextMessage(senderID, addedMessage);
                 }, 2000);
                 break;
-            case 'and how i can use your functionality':
+            case 'really':
+            case 'it\'s fine':
+            case 'right':
                 replyMessage = "Please type start and send me !!";
                 addedMessage = "Sure i will help you :)";
                 setTimeout(function () {
