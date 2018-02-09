@@ -16,9 +16,9 @@ app.get('/', function (req, res) {
 
 // For Facebook verification
 app.get('/webhook/', function (req, res) {
-    if (req.query['hub.verify_token'] === process.env.VERIFICATION_TOKEN) {
+ //   if (req.query['hub.verify_token'] == 'popoq') {
         res.send(req.query['hub.challenge']);
-    }
+    //}
     res.send('Error, wrong token1');
 });
 
