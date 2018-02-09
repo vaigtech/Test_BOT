@@ -16,9 +16,9 @@ app.get('/', function (req, res) {
 
 // For Facebook verification
 app.get('/webhook/', function (req, res) {
- //   if (req.query['hub.verify_token'] == 'popoq') {
+    if (req.query['hub.verify_token'] === process.env.FB_VERIFY_TOKEN) {
         res.send(req.query['hub.challenge']);
-    //}
+    }
     res.send('Error, wrong token1');
 });
 
@@ -145,7 +145,7 @@ function sendHiMessage(senderID, recipientID) {
     request({
         url: 'https://graph.facebook.com/v2.11/' + senderID,
         qs: {
-            access_token: process.env.PAGE_ACCESS_TOKEN,
+            access_token: process.env.FB_PAGE_TOKEN,
             fields: "first_name"
         },
         method: 'GET'
