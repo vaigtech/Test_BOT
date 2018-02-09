@@ -267,7 +267,7 @@ function callSendAPI(mesageData) {
     request({
         url: "https://graph.facebook.com/v2.11/me/messages",
         qs: {
-            access_token: process.env.PAGE_ACCESS_TOKEN
+            access_token: process.env.FB_PAGE_TOKEN
         },
         method: "POST",
         json: mesageData
